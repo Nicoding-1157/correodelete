@@ -14,11 +14,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Retraso para asegurar que el DOM está completamente cargado
             setTimeout(() => {
-                document.getElementById("emailLink").click();
+                const emailLink = document.getElementById("emailLink");
+                if (emailLink) {
+                    emailLink.click(); // Simula el clic en el enlace
+                }
             }, 500); // Retraso de 500ms
         });
     </script>
 </body>
 </html>
+
 
