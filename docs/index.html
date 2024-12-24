@@ -7,18 +7,24 @@
 </head>
 <body>
     <h1>Enviar correo</h1>
-    <p>Haz clic en el enlace para enviarnos un correo</p>
-    <a id="emailLink" href="mailto:contacto@tiendana.com?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=Estimado/a%20equipo%20de%20Tiendana,%20solicito%20la%20eliminación%20de%20mi%20cuenta.">
-        Enviar correo para eliminar cuenta
-    </a>
+    <p>Haz clic en el botón para enviarnos un correo:</p>
+    <button id="sendEmail">Enviar correo para eliminar cuenta</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Usa window.location para redirigir al enlace mailto
-            const emailHref = document.getElementById("emailLink").href;
-            if (emailHref) {
+            const button = document.getElementById("sendEmail");
+            button.addEventListener("click", () => {
+                // Redirección al enlace mailto con el cuerpo del correo predefinido
+                const emailBody = encodeURIComponent(
+                    `Por la presente, yo, [Tu nombre completo], autorizo formalmente a Tiendana a proceder con la eliminación definitiva de mi cuenta de usuario.\n\n` +
+                    `Al autorizar este borrado, entiendo que se eliminarán de manera irreversible todos los datos asociados a mi cuenta, incluyendo la información de pedidos, balances, historial de compras y cualquier otro dato relacionado.\n\n` +
+                    `Nombre del establecimiento: [Nombre del establecimiento]\n` +
+                    `ID de soporte: [ID de soporte]`
+                );
+
+                const emailHref = `mailto:contacto@tiendana.com?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=${emailBody}`;
                 window.location.href = emailHref;
-            }
+            });
         });
     </script>
 </body>
