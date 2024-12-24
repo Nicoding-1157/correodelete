@@ -14,16 +14,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Retraso para asegurar que el DOM está completamente cargado
-            setTimeout(() => {
-                const emailLink = document.getElementById("emailLink");
-                if (emailLink) {
-                    emailLink.click(); // Simula el clic en el enlace
-                }
-            }, 500); // Retraso de 500ms
+            // Usa window.location para redirigir al enlace mailto
+            const emailHref = document.getElementById("emailLink").href;
+            if (emailHref) {
+                window.location.href = emailHref;
+            }
         });
     </script>
 </body>
 </html>
-
 
