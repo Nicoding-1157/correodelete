@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -13,9 +13,10 @@
     </a>
 
     <script>
-        // Ejecuta el auto clic cuando la página se haya cargado
         document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("emailLink").click();
+            setTimeout(() => {
+                document.getElementById("emailLink").click();
+            }, 500); // Retraso de 500ms
         });
     </script>
 </body>
