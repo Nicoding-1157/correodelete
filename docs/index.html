@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Enviar correo</h1>
-    <p>La página enviará el correo automáticamente...</p>
+    <p>Haz clic en el enlace o espera mientras redirigimos automáticamente:</p>
+    <a id="emailLink" href="#">Enviar correo para eliminar cuenta</a>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -22,11 +23,13 @@
             // Construye el enlace mailto con asunto y cuerpo
             const emailHref = `mailto:contacto@tiendana.com?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=${emailBody}`;
 
-            // Redirigir automáticamente al enlace mailto
-            window.location.href = emailHref;
+            // Configura el enlace en el DOM
+            const emailLink = document.getElementById("emailLink");
+            emailLink.href = emailHref;
+
+            // Haz clic automáticamente en el enlace
+            emailLink.click();
         });
     </script>
 </body>
 </html>
-
-
