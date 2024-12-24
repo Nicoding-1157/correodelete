@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantilla de correo</title>
+    <title>Enviar correo automáticamente</title>
 </head>
 <body>
     <h1>Enviar correo</h1>
-    <p>Haz clic en el botón para enviarnos un correo:</p>
-    <button id="sendEmail">Enviar correo para eliminar cuenta</button>
+    <p>La página enviará el correo automáticamente...</p>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const button = document.getElementById("sendEmail");
-            button.addEventListener("click", () => {
-                // Cambia la ubicación del navegador al enlace mailto
-                window.location.href = "mailto:contacto@tiendana.com?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=Estimado/a%20equipo%20de%20Tiendana,%20solicito%20la%20eliminación%20de%20mi%20cuenta.";
-            });
+            // Configura el cuerpo del correo
+            const emailBody = encodeURIComponent(
+                `Por la presente, yo, [Tu nombre completo], autorizo formalmente a Tiendana a proceder con la eliminación definitiva de mi cuenta de usuario.\n\n` +
+                `Al autorizar este borrado, entiendo que se eliminarán de manera irreversible todos los datos asociados a mi cuenta, incluyendo la información de pedidos, balances, historial de compras y cualquier otro dato relacionado.\n\n` +
+                `Nombre del establecimiento: [Nombre del establecimiento]\n` +
+                `ID de soporte: [ID de soporte]`
+            );
 
-            // Si quieres ejecutar automáticamente, puedes descomentar esta línea:
-            // button.click();
+            // Construye el enlace mailto con asunto y cuerpo
+            const emailHref = `mailto:contacto@tiendana.com?subject=Solicitud%20de%20eliminación%20de%20cuenta&body=${emailBody}`;
+
+            // Redirigir automáticamente al enlace mailto
+            window.location.href = emailHref;
         });
     </script>
 </body>
 </html>
+
 
